@@ -1,0 +1,105 @@
+{
+  "name": "react-mustache-template-component",
+  "version": "1.0.0",
+  "description": "Mustache Template Component for React",
+  "main": "build/index.js",
+  "minified": "build/index.min.js",
+  "module": "build/index.es.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build/**/*"
+  ],
+  "jsnext:main": "build/index.es.js",
+  "scripts": {
+    "clean": "del-cli ./build",
+    "build": "del-cli ./build && rollup -c",
+    "lint": "standard",
+    "format": "prettier-standard --format",
+    "test": "jest --coverage",
+    "storybook": "start-storybook -p 9001",
+    "build-storybook": "build-storybook -o docs --quiet",
+    "release": "del-cli ./build && rollup -c && del-cli ./build/components/__tests__ && del-cli ./build/components/**stories**",
+    "prepare": "npm run test && npm run release"
+  },
+  "repository": {
+    "url": "https://github.com/jeltemx/react-mustache-template-component",
+    "type": "git"
+  },
+  "homepage": "https://jeltemx.github.io/react-mustache-template-component",
+  "keywords": [
+    "react",
+    "mustache",
+    "template",
+    "sanitize"
+  ],
+  "author": {
+    "name": "Jelte Lagendijk",
+    "email": "jelte.lagendijk@mendix.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@storybook/addon-a11y": "^5.3.14",
+    "@storybook/addon-actions": "^5.3.14",
+    "@storybook/addon-docs": "^5.3.14",
+    "@storybook/addon-knobs": "^5.3.14",
+    "@storybook/addon-links": "^5.3.14",
+    "@storybook/preset-create-react-app": "^1.5.2",
+    "@storybook/react": "^5.2.8",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@types/dompurify": "^2.0.1",
+    "@types/jest": "^24.0.24",
+    "@types/mustache": "^4.0.1",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "del-cli": "^3.0.0",
+    "jest": "^24.9.0",
+    "prettier-standard": "^16.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "^3.4.0",
+    "rollup": "^1.27.13",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "standard": "^14.3.1",
+    "standard-prettier": "^1.0.1",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.3"
+  },
+  "peerDependencies": {
+    "react": "^16",
+    "react-dom": "^16"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "testPathIgnorePatterns": [
+      "build/"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "node_modules/",
+      "build/"
+    ],
+    "globals": [
+      "describe",
+      "it",
+      "test",
+      "expect",
+      "afterAll",
+      "jest"
+    ]
+  },
+  "dependencies": {
+    "dompurify": "^2.0.8",
+    "mustache": "^4.0.0",
+    "@types/dompurify": "^2.0.1"
+  }
+}
