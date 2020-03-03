@@ -1,4 +1,4 @@
-name: Build, test
+name: Latest build
 
 on:
   push:
@@ -42,4 +42,3 @@ jobs:
       run: npm run test
       env:
         CI: true
-
