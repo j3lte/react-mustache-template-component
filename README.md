@@ -1,7 +1,12 @@
 ![Latest build](https://github.com/JelteMX/react-mustache-template-component/workflows/Latest%20build/badge.svg)
 ![Master Build](https://github.com/JelteMX/react-mustache-template-component/workflows/Master%20Build/badge.svg)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/jeltemx/react-mustache-template-component/issues)
+[![dependencies Status](https://david-dm.org/jeltemx/react-mustache-template-component/status.svg)](https://david-dm.org/jeltemx/react-mustache-template-component)
+[![devDependencies Status](https://david-dm.org/jeltemx/react-mustache-template-component/dev-status.svg)](https://david-dm.org/jeltemx/react-mustache-template-component?type=dev)
 
 # react-mustache-template-component - React Mustache Template Component
+
+[![https://nodei.co/npm/react-mustache-template-component.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/react-mustache-template-component.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/react-mustache-template-component)
 
 The Template component that uses [Mustache.js](https://www.npmjs.com/package/mustache) to render the a component, sanitized by [dompurify](https://www.npmjs.com/package/dompurify).
 
