@@ -1,4 +1,4 @@
-![Build, test](https://github.com/JelteMX/react-mustache-template-component/workflows/Build,%20test/badge.svg)
+![Latest build](https://github.com/JelteMX/react-mustache-template-component/workflows/Latest%20build/badge.svg)
 
 # react-mustache-template-component - React Mustache Template Component
 
