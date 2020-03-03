@@ -1,6 +1,6 @@
 # react-mustache-template-component - React Mustache Template Component
 
-The Template component that uses [Mustache.js](https://www.npmjs.com/package/mustache) to render the a component, sanitized by [dompurify](https://www.npmjs.com/package/dompurify)
+The Template component that uses [Mustache.js](https://www.npmjs.com/package/mustache) to render the a component, sanitized by [dompurify](https://www.npmjs.com/package/dompurify).
 
 ## Demo
 
