@@ -4,12 +4,6 @@ on:
   push:
     branches:
       - master
-    paths:
-        - '**.tsx'
-        - '**.ts'
-        - '**.js'
-        - '**.scss'
-        - '**.json'
 
 jobs:
   build:
