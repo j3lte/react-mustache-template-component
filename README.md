@@ -1,3 +1,5 @@
+![Build, test](https://github.com/JelteMX/react-mustache-template-component/workflows/Build,%20test/badge.svg)
+
 # react-mustache-template-component - React Mustache Template Component
 
 The Template component that uses [Mustache.js](https://www.npmjs.com/package/mustache) to render the a component, sanitized by [dompurify](https://www.npmjs.com/package/dompurify).
