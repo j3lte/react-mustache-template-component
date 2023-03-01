@@ -48,7 +48,7 @@ Props that are used:
 |---|---|---|---|---|
 |**template**|Yes|string|-|Mustache [template string](https://github.com/janl/mustache.js) that is used in your template component|
 |**data**|No|object|`{}`|Data used by Mustache to replace placeholders (marked by `{{}}`)|
-|**type**|No|string|`"div"`|Type of container. Can be `"div"` or `"span"`|
+|**type**|No|string|`"div"`|Type of container. Can be any HTMLElement, like `div`, `span`, `i` etc |
 |**sanitize**|No|boolean|true|Sanitize the result using `dompurify`|
 |**sanitizeOptions**|No|object|{}|Sanitation can be changed by [Dompurify.Config](https://www.npmjs.com/package/dompurify#can-i-configure-dompurify) options|
 

@@ -30,11 +30,27 @@ describe("TemplateComponent", () => {
     expect(container.firstChild?.nodeName).toEqual("SPAN");
     expect(container).toHaveTextContent("Has text");
   });
+  it("Renders i", () => {
+    const { container } = render(
+      <TemplateComponent template="Has text" type="i" />,
+    );
+
+    expect(container.firstChild?.nodeName).toEqual("I");
+    expect(container).toHaveTextContent("Has text");
+  });
 
   it("Only accepts strings as template", () => {
+    const originalError = console.error;
+    const mocked = jest.fn();
+
+    console.error = mocked;
     // @ts-ignore
     const { container } = render(<TemplateComponent template={{}} />);
     expect(container).toBeEmptyDOMElement();
+
+    expect(mocked).toHaveBeenCalled();
+
+    console.error = originalError;
   });
 
   it("Renders elements", () => {
@@ -88,7 +104,8 @@ describe("TemplateComponent", () => {
     console.error = mocked;
 
     const el = getContainer(
-      <TemplateComponent template="This doesn't work {{test" />,
+      // @ts-ignore
+      <TemplateComponent template="This doesn't work {{test" sanitize={1} />,
     );
 
     expect(el).toBeNull();
