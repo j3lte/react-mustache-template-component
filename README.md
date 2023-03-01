@@ -1,10 +1,16 @@
+[![npm](https://img.shields.io/npm/v/react-mustache-template-component?label=NPM&logo=npm&style=flat-square)](https://www.npmjs.com/package/react-mustache-template-component)
+[![License](https://img.shields.io/github/license/j3lte/react-mustache-template-component?color=%2344cc10&label=License&logo=github&style=flat-square)](https://github.com/j3lte/react-mustache-template-component/blob/main/LICENSE)
+[![GitHub Bugs](https://img.shields.io/github/issues-search/j3lte/react-mustache-template-component?label=Bugs&logo=github&query=is%3Aopen%20label%3Abug&style=flat-square)](https://github.com/j3lte/react-mustache-template-component/issues)
+[![GitHub issues](https://img.shields.io/github/issues/j3lte/react-mustache-template-component?label=Issues&style=flat-square)](https://github.com/j3lte/react-mustache-template-component/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/j3lte/react-mustache-template-component?label=Last%20Commit&logo=github&style=flat-square)](https://github.com/j3lte/react-mustache-template-component/commits/main)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/j3lte/react-mustache-template-component/ci.yml?label=Build%20status&logo=github&style=flat-square)](https://github.com/j3lte/react-mustache-template-component/actions/workflows/ci.yml)
+[![Codecov](https://img.shields.io/codecov/c/github/j3lte/react-mustache-template-component?label=Code%20Coverage&logo=codecov&style=flat-square&token=JZUQJXMB4C)](https://codecov.io/gh/j3lte/react-mustache-template-component)
+![npm type definitions](https://img.shields.io/npm/types/react-mustache-template-component?style=flat-square)
+[![DeepScan grade](https://flat.badgen.net/deepscan/grade/team/20288/project/24005/branch/735054?icon=deepscan&label=Deepscan)](https://deepscan.io/dashboard#view=project&tid=20288&pid=24005&bid=735054)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/j3lte/react-mustache-template-component/issues)
-[![dependencies Status](https://david-dm.org/j3lte/react-mustache-template-component/status.svg)](https://david-dm.org/j3lte/react-mustache-template-component)
-[![devDependencies Status](https://david-dm.org/j3lte/react-mustache-template-component/dev-status.svg)](https://david-dm.org/j3lte/react-mustache-template-component?type=dev)
+![Known Vulnerabilities](https://snyk.io/test/github/j3lte/react-mustache-template-component/badge.svg)
 
-# react-mustache-template-component - React Mustache Template Component
-
-[![https://nodei.co/npm/react-mustache-template-component.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/react-mustache-template-component.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/react-mustache-template-component)
+# React Mustache Template Component
 
 The Template component that uses [Mustache.js](https://www.npmjs.com/package/mustache) to render the a component, sanitized by [dompurify](https://www.npmjs.com/package/dompurify).
 
