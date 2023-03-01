@@ -1,8 +1,8 @@
-![Latest build](https://github.com/JelteMX/react-mustache-template-component/workflows/Latest%20build/badge.svg)
-![Master Build](https://github.com/JelteMX/react-mustache-template-component/workflows/Master%20Build/badge.svg)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/jeltemx/react-mustache-template-component/issues)
-[![dependencies Status](https://david-dm.org/jeltemx/react-mustache-template-component/status.svg)](https://david-dm.org/jeltemx/react-mustache-template-component)
-[![devDependencies Status](https://david-dm.org/jeltemx/react-mustache-template-component/dev-status.svg)](https://david-dm.org/jeltemx/react-mustache-template-component?type=dev)
+![Latest build](https://github.com/J3lte/react-mustache-template-component/workflows/Latest%20build/badge.svg)
+![Master Build](https://github.com/J3lte/react-mustache-template-component/workflows/Master%20Build/badge.svg)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/j3lte/react-mustache-template-component/issues)
+[![dependencies Status](https://david-dm.org/j3lte/react-mustache-template-component/status.svg)](https://david-dm.org/j3lte/react-mustache-template-component)
+[![devDependencies Status](https://david-dm.org/j3lte/react-mustache-template-component/dev-status.svg)](https://david-dm.org/j3lte/react-mustache-template-component?type=dev)
 
 # react-mustache-template-component - React Mustache Template Component
 
@@ -12,7 +12,7 @@ The Template component that uses [Mustache.js](https://www.npmjs.com/package/mus
 
 ## Demo
 
-See [Storybook](https://jeltemx.github.io/react-mustache-template-component) for examples.
+See [Storybook](https://j3lte.github.io/react-mustache-template-component) for examples.
 
 ## Installation and Usage
 
