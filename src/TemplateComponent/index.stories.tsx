@@ -10,7 +10,7 @@ export default {
   title: "TemplateComponent",
   argTypes: {
     onClick: { action: "onClick" },
-    onDblClick: { action: "onDblClick" },
+    onDoubleClick: { action: "onDoubleClick" },
   },
 };
 

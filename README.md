@@ -51,10 +51,8 @@ Props that are used:
 |**type**|No|string|`"div"`|Type of container. Can be `"div"` or `"span"`|
 |**sanitize**|No|boolean|true|Sanitize the result using `dompurify`|
 |**sanitizeOptions**|No|object|{}|Sanitation can be changed by [Dompurify.Config](https://www.npmjs.com/package/dompurify#can-i-configure-dompurify) options|
-|**className**|No|string|""|Class name of container|
-|**style**|No|object|{}|Extra style options for the container|
-|**onClick**|No|function|void|OnClick handler, executed when clicking on the container|
-|**onDblClick**|No|function|void|OnDoubleClick handler, executed when double clicking on the container|
+
+Besides these props, it can also use all basic HTML attributes, like `className`, `style`, `id`, etc.
 
 ## Development
 
