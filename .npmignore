@@ -1,9 +1,0 @@
-.storybook
-.vscode
-src
-stories
-coverage
-rollup.config.js
-.prettierignore
-docs
-.github

@@ -1,102 +1,112 @@
 {
   "name": "react-mustache-template-component",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Mustache Template Component for React",
-  "main": "build/index.js",
-  "minified": "build/index.min.js",
-  "module": "build/index.es.js",
-  "types": "build/index.d.ts",
-  "files": [
-    "build/**/*"
-  ],
-  "jsnext:main": "build/index.es.js",
-  "scripts": {
-    "clean": "del-cli ./build",
-    "build": "del-cli ./build && rollup -c",
-    "lint": "standard",
-    "format": "prettier-standard --format",
-    "test": "jest --coverage",
-    "storybook": "start-storybook -p 9001",
-    "build-storybook": "build-storybook -o docs --quiet",
-    "release": "del-cli ./build && rollup -c && del-cli ./build/components/__tests__ && del-cli ./build/components/**stories**",
-    "prepare": "npm run test && npm run release"
+  "author": {
+    "name": "J.W. Lagendijk",
+    "email": "jelte@caffcode.com"
   },
   "repository": {
     "url": "https://github.com/j3lte/react-mustache-template-component",
     "type": "git"
   },
-  "homepage": "https://j3lte.github.io/react-mustache-template-component",
+  "homepage": "https://github.com/j3lte/react-mustache-template-component",
+  "bugs": "https://github.com/j3lte/react-mustache-template-component/issues",
+  "license": "MIT",
+  "main": "build/index.js",
+  "module": "build/index.esm.js",
+  "types": "build/index.d.ts",
+  "testEnvironment": "jsdom",
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "react",
     "mustache",
     "template",
     "sanitize"
   ],
-  "author": {
-    "name": "Jelte Lagendijk",
-    "email": "jelte@caffcode.com"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/core": "^7.8.6",
-    "@storybook/addon-a11y": "^5.3.14",
-    "@storybook/addon-actions": "^5.3.14",
-    "@storybook/addon-docs": "^5.3.14",
-    "@storybook/addon-knobs": "^5.3.14",
-    "@storybook/addon-links": "^5.3.14",
-    "@storybook/preset-create-react-app": "^1.5.2",
-    "@storybook/react": "^5.3.14",
-    "@testing-library/jest-dom": "^5.1.1",
-    "@testing-library/react": "^9.4.1",
-    "@types/dompurify": "^2.4.0",
-    "@types/jest": "^25.1.3",
-    "@types/mustache": "^4.0.1",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.5",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.6",
-    "del-cli": "^3.0.0",
-    "jest": "^25.1.0",
-    "prettier-standard": "^16.1.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "^3.4.0",
-    "rollup": "^1.32.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.2",
-    "rollup-plugin-terser": "^5.2.0",
-    "rollup-plugin-typescript2": "^0.26.0",
-    "standard": "^14.3.1",
-    "standard-prettier": "^1.0.1",
-    "ts-jest": "^25.2.1",
-    "typescript": "^3.8.3"
+  "scripts": {
+    "build": "rollup -c --bundleConfigAsCjs",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch --coverage",
+    "prepublishOnly": "npm run build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "prettier": "prettier --write src/*",
+    "eslint": "eslint src/**/*.ts*",
+    "lint": "npm run test:coverage && npm run prettier && npm run eslint"
   },
   "peerDependencies": {
     "react": ">= 16.8.4 || ^17.0.0 || ^18.0.0",
     "react-dom": ">= 16.8.4 || ^17.0.0 || ^18.0.0"
   },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "jsdom",
-    "testPathIgnorePatterns": [
-      "build/"
-    ]
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-json": "^5.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-controls": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-webpack5": "^6.5.13",
+    "@storybook/manager-webpack5": "^6.5.13",
+    "@storybook/react": "^6.5.13",
+    "@storybook/testing-library": "^0.0.13",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@types/dompurify": "^2.4.0",
+    "@types/jest": "^29.2.0",
+    "@types/mustache": "^4.2.2",
+    "@types/object-hash": "^3.0.2",
+    "@types/react": "^18.0.24",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "babel-loader": "^9.0.0",
+    "babel-preset-react-app": "^10.0.1",
+    "eslint": "^8.26.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.2.2",
+    "jest-environment-jsdom": "^29.2.2",
+    "node-sass": "^7.0.3",
+    "postcss": "^8.4.18",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.8.3",
+    "raw-loader": "^4.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^3.2.3",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-node-externals": "^5.0.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-url": "^3.0.1",
+    "ts-jest": "^29.0.3",
+    "typescript": "^4.8.4",
+    "url-loader": "^4.1.1",
+    "webpack": "5.74.0"
   },
-  "standard": {
-    "ignore": [
-      "node_modules/",
-      "build/"
-    ],
-    "globals": [
-      "describe",
-      "it",
-      "test",
-      "expect",
-      "afterAll",
-      "jest"
-    ]
-  },
+  "pre-commit": [
+    "lint"
+  ],
   "dependencies": {
     "dompurify": "^3.0.1",
     "mustache": "^4.2.0"

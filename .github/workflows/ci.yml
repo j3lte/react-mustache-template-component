@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "development"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  run-linters:
+    name: Lint & Jest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: v18.5.0
+          cache: npm
+      - name: Cache NPM dependencies
+        uses: actions/cache@v3
+        id: cache-primes
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies # (3)
+        if: steps.cache-primes.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Run linters
+        run: npm run lint
+      - name: Test
+        run: npm run test -- --coverage
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v2
+      - name:
+        run: npm run build

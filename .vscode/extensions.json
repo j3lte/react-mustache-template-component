@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stringham.copy-with-imports",
+    "steoates.autoimport",
+    "wix.vscode-import-cost",
+    "formulahendry.auto-rename-tag"
+  ]
+}

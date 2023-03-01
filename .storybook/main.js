@@ -1,24 +1,24 @@
 const path = require("path");
 
 module.exports = {
-  stories: ["../src/**/*.stories.(ts|tsx|js|jsx|mdx)"],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
-    "@storybook/addon-knobs/register",
-    "@storybook/addon-actions/register",
     "@storybook/addon-links",
-    {
-      name: "@storybook/preset-create-react-app",
-      options: {
-        tsDocgenLoaderOptions: {
-          tsconfigPath: path.resolve(__dirname, "../tsconfig.json")
-        }
-      }
-    },
-    {
-      name: "@storybook/addon-docs",
-      options: {
-        configureJSX: true
-      }
-    }
-  ]
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+  ],
+  framework: "@storybook/react",
+  core: {
+    builder: "webpack5",
+  },
+  webpackFinal: async (config) => {
+
+    // load xml as raw
+    config.module.rules.push({
+      test: /\.xml$/,
+      use: "raw-loader",
+    });
+
+    return config;
+  },
 };

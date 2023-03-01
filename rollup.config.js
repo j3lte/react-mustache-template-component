@@ -1,59 +1,84 @@
-import typescript from 'rollup-plugin-typescript2'
-import commonjs from 'rollup-plugin-commonjs'
-import external from 'rollup-plugin-peer-deps-external'
-import resolve from 'rollup-plugin-node-resolve'
-import { terser } from "rollup-plugin-terser"
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import typescript from "rollup-plugin-typescript2";
+import postcss from "rollup-plugin-postcss";
+import analyze from "rollup-plugin-analyzer";
+import externals from "rollup-plugin-node-externals";
+import babel from "@rollup/plugin-babel";
+import del from "rollup-plugin-delete";
+import terser from '@rollup/plugin-terser';
+import url from "rollup-plugin-url";
+import json from "@rollup/plugin-json";
 
-// @ts-ignore
-import pkg from './package.json'
+const packageJson = require("./package.json");
+const banner = `/**
+* @preserve
+* ${packageJson.name} v${packageJson.version}
+* ${packageJson.description}
+* ${packageJson.homepage}
+* (c) ${new Date().getFullYear()} ${packageJson.author.name} <${packageJson.author.email}>
+* @license ${packageJson.license}
+*/`
+
+const onwarn = (warning) => {
+  // Skip circular dependency warnings
+  if (warning.code === "CIRCULAR_DEPENDENCY") {
+    return;
+  }
+  console.warn(`(!) ${warning.message}`)
+}
+
 
 export default {
-  input: 'src/index.ts',
+  input: "src/index.ts",
   output: [
     {
-      file: pkg.main,
-      format: 'cjs',
-      exports: 'named',
-      sourcemap: true
+      file: packageJson.main,
+      format: "cjs",
+      sourcemap: true,
+      banner,
     },
     {
-      file: pkg.minified,
-      format: 'cjs',
-      exports: 'named',
-      sourcemap: false
+      file: packageJson.module,
+      format: "esm",
+      sourcemap: true,
+      banner,
     },
-    {
-      file: pkg.module,
-      format: 'es',
-      exports: 'named',
-      sourcemap: true
-    }
   ],
+  onwarn,
   plugins: [
-    external(),
+    del({ targets: "build/*" }),
+    // devDependenciesnd and peerDependencies wont be included in the bundle
+    // if you want to also exculde dependencies, change deps to true
+    externals({ deps: false, devDeps: true, peerDeps: true }),
     resolve(),
+    commonjs(),
     typescript({
-      rollupCommonJSResolveHack: true,
-      exclude: [
-        '**/__tests__/**',
-        '**/*.stories.tsx'
-      ],
-      clean: true
-    }),
-    commonjs({
-      include: ['node_modules/**'],
-      namedExports: {
-        'node_modules/react/react.js': [
-          'Children',
-          'Component',
-          'PropTypes',
-          'createElement'
-        ],
-        'node_modules/react-dom/index.js': ['render']
+      useTsconfigDeclarationDir: true,
+      tsconfigOverride: {
+        exclude: ["**/__tests__", "**/*.test.tsx", "**/*.stories.tsx"]
       }
     }),
+    babel({
+      babelHelpers: "runtime",
+      exclude: "**/node_modules/**",
+      extensions: [".js", ".jsx", ".ts", ".tsx"],
+    }),
+    postcss(),
     terser({
-      include: [/^.+\.min\.js$/, '*esm*']
-    })
-  ]
-}
+      format: {
+        comments: (node, comment) => {
+          const text = comment.value;
+          const type = comment.type;
+          if (type == "comment2") {
+            // multiline comment
+            return /@preserve|@license|@cc_on/i.test(text);
+          }
+        },
+      },
+    }),
+    analyze(),
+    url(),
+    json(),
+  ],
+};
