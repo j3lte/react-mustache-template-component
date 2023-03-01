@@ -9,6 +9,8 @@
 [![DeepScan grade](https://flat.badgen.net/deepscan/grade/team/20288/project/24005/branch/735054?icon=deepscan&label=Deepscan)](https://deepscan.io/dashboard#view=project&tid=20288&pid=24005&bid=735054)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/j3lte/react-mustache-template-component/issues)
 ![Known Vulnerabilities](https://snyk.io/test/github/j3lte/react-mustache-template-component/badge.svg)
+[![Bundlephobia](https://img.shields.io/bundlephobia/min/react-mustache-template-component?label=Size&style=flat-square)](https://bundlephobia.com/package/react-mustache-template-component@latest)
+
 
 # React Mustache Template Component
 

@@ -50,7 +50,7 @@ export default {
     del({ targets: "build/*" }),
     // devDependenciesnd and peerDependencies wont be included in the bundle
     // if you want to also exculde dependencies, change deps to true
-    externals({ deps: false, devDeps: true, peerDeps: true }),
+    externals({ deps: true, devDeps: true, peerDeps: true }),
     resolve(),
     commonjs(),
     typescript({
