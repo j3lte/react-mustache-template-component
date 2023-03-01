@@ -40,17 +40,9 @@ describe("TemplateComponent", () => {
   });
 
   it("Only accepts strings as template", () => {
-    const originalError = console.error;
-    const mocked = jest.fn();
-
-    console.error = mocked;
     // @ts-ignore
     const { container } = render(<TemplateComponent template={{}} />);
     expect(container).toBeEmptyDOMElement();
-
-    expect(mocked).toHaveBeenCalled();
-
-    console.error = originalError;
   });
 
   it("Renders elements", () => {

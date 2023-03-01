@@ -1,6 +1,6 @@
 {
   "name": "react-mustache-template-component",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Mustache Template Component for React",
   "author": {
     "name": "J.W. Lagendijk",
@@ -109,7 +109,6 @@
   ],
   "dependencies": {
     "dompurify": "^3.0.1",
-    "mustache": "^4.2.0",
-    "prop-types": "^15.8.1"
+    "mustache": "^4.2.0"
   }
 }
