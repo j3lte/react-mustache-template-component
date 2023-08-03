@@ -8,9 +8,11 @@ import del from "rollup-plugin-delete";
 import terser from '@rollup/plugin-terser';
 
 const packageJson = require("./package.json");
+const dateTime = new Date().toISOString();
 const banner = `/**
 * @preserve
 * ${packageJson.name} v${packageJson.version}
+* Last build: ${dateTime}
 * ${packageJson.description}
 * ${packageJson.homepage}
 * (c) ${new Date().getFullYear()} ${packageJson.author.name} <${packageJson.author.email}>
