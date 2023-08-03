@@ -37,6 +37,7 @@
     "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o docs --quiet",
+    "local-storybook": "npm run build-storybook && npx http-server ./docs",
     "prettier": "prettier --write src/*",
     "eslint": "eslint src/**/*.ts*",
     "lint": "npm run test:coverage && npm run prettier && npm run eslint"

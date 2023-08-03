@@ -23,7 +23,7 @@ const createStory = (args: TemplateComponentProps) => {
   return story;
 };
 
-export const allOptions = createStory({
+export const AllOptions = createStory({
   template: "This is a simple text, with data: {{test}}",
   sanitize: true,
   sanitizeOptions: {},
@@ -31,21 +31,21 @@ export const allOptions = createStory({
   data: { test: "testData" },
 });
 
-export const basicDiv = createStory({
+export const BasicDiv = createStory({
   template: "div text",
 });
 
-export const basicSpan = createStory({
+export const BasicSpan = createStory({
   type: "span",
   template: "span text",
 });
 
-export const unsanitizedXSS = createStory({
+export const UnsanitizedXSS = createStory({
   template:
     "This should produce an XSS when not properly sanitized! <img src=x onerror=alert(1)//>",
   sanitize: false,
 });
 
-export const onClick = createStory({
+export const OnClick = createStory({
   template: "click me (single or double), see Actions tab",
 });
