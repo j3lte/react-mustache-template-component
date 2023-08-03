@@ -18,7 +18,7 @@ The Template component that uses [Mustache.js](https://www.npmjs.com/package/mus
 
 ## Demo
 
-TBD
+See [Storybook](https://j3lte.github.io/react-mustache-template-component/)
 
 ## Installation and Usage
 
