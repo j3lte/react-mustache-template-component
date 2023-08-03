@@ -39,6 +39,7 @@ export interface TemplateComponentProps extends HTMLAttributes<HTMLElement> {
    * See [Options](https://github.com/cure53/DOMPurify#can-i-configure-dompurify) for more information
    *
    * @type {Config}
+   * @see https://github.com/cure53/DOMPurify#can-i-configure-dompurify
    * @memberof TemplateComponentProps
    * @default undefined
    */

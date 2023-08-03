@@ -3,29 +3,19 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
-    jest: true,
+    jest: true
   },
-  extends: [
-    "airbnb",
-    "airbnb-typescript",
-    "plugin:import/typescript",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
-  ],
+  extends: ["airbnb", "airbnb-typescript", "plugin:import/typescript", "plugin:react/recommended", "plugin:prettier/recommended", "plugin:storybook/recommended"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: "latest",
     sourceType: "module",
-    project: "./tsconfig.json",
+    project: "./tsconfig.json"
   },
-  plugins: [
-    "react",
-    "@typescript-eslint",
-    "prettier",
-  ],
+  plugins: ["react", "@typescript-eslint", "prettier"],
   rules: {
     "react/react-in-jsx-scope": ["off"],
     "react/jsx-uses-react": ["off"],
@@ -37,24 +27,22 @@ module.exports = {
     "import/no-cycle": ["off"],
     "import/order": ["error", {
       "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
-      "pathGroups": [
-        {
-          "pattern": "react",
-          "group": "external",
-          "position": "before"
-        }
-      ],
+      "pathGroups": [{
+        "pattern": "react",
+        "group": "external",
+        "position": "before"
+      }],
       "pathGroupsExcludedImportTypes": ["react"],
       "newlines-between": "always",
       "alphabetize": {
         "order": "asc",
         "caseInsensitive": true
       }
-    }],
+    }]
   },
   settings: {
     react: {
-      version: "detect",
-    },
-  },
+      version: "detect"
+    }
+  }
 };
