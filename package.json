@@ -36,7 +36,7 @@
     "test:watch": "jest --watch --coverage",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs --quiet",
     "prettier": "prettier --write src/*",
     "eslint": "eslint src/**/*.ts*",
     "lint": "npm run test:coverage && npm run prettier && npm run eslint"
