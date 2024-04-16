@@ -106,7 +106,7 @@
     "lint"
   ],
   "dependencies": {
-    "dompurify": "^3.0.5",
+    "dompurify": "^3.1.0",
     "mustache": "^4.2.0"
   }
 }
