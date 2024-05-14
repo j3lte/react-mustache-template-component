@@ -69,44 +69,58 @@ export interface TemplateComponentProps extends HTMLAttributes<HTMLElement> {
 const TemplateComponentInternal: FunctionComponent<TemplateComponentProps> =
   forwardRef<ComponentType, TemplateComponentProps>(
     ({ template, sanitize, sanitizeOptions, data, type, ...args }, ref) => {
-      try {
-        const sanitizer = dompurify.sanitize;
-        const compiled = useMemo(
-          () =>
-            typeof template === "string"
-              ? Mustache.render(template, data)
-              : null,
-          [template, data],
-        );
-        const shouldSanitize = typeof sanitize === "boolean" ? sanitize : true;
-        const innerType = type || "div";
+      const sanitizer = dompurify.sanitize;
+      const shouldSanitize = typeof sanitize === "boolean" ? sanitize : true;
+      const innerType = type || "div";
 
+      const compiled = useMemo(() => {
+        if (typeof template === "string") {
+          try {
+            return Mustache.render(template, data);
+          } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error(error);
+            return null;
+          }
+        }
+        return null;
+      }, [template, data]);
+
+      const html = useMemo(() => {
         if (compiled === null) {
           return null;
         }
+        try {
+          return (
+            shouldSanitize
+              ? typeof sanitizeOptions !== "undefined"
+                ? sanitizer(compiled, sanitizeOptions)
+                : sanitizer(compiled)
+              : compiled
+          ) as string;
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.error(error);
+          return null;
+        }
+      }, [compiled]);
 
-        const html = (
-          shouldSanitize
-            ? typeof sanitizeOptions !== "undefined"
-              ? sanitizer(compiled, sanitizeOptions)
-              : sanitizer(compiled)
-            : compiled
-        ) as string;
+      const htmlOpts = useMemo(
+        () =>
+          html
+            ? {
+                ...args,
+                dangerouslySetInnerHTML: { __html: html },
+              }
+            : args,
+        [html],
+      );
 
-        const htmlOpts = useMemo(
-          () => ({
-            ...args,
-            dangerouslySetInnerHTML: { __html: html },
-          }),
-          [html],
-        );
-
-        return createElement(innerType, { ...htmlOpts, ref }, null);
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(error);
+      if (!html) {
         return null;
       }
+
+      return createElement(innerType, { ...htmlOpts, ref }, null);
     },
   );
 

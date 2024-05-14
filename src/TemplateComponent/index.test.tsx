@@ -101,7 +101,7 @@ describe("TemplateComponent", () => {
     );
 
     expect(el).toBeNull();
-    expect(mocked).toHaveBeenCalled();
+    expect(mocked).toHaveBeenCalledWith(expect.any(Error));
 
     console.error = originalError;
   });
